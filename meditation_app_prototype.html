@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静心 - 冥想App原型图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f7;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #1a1a1a;
+            font-size: 2em;
+        }
+        
+        h2 {
+            margin: 25px 0 15px;
+            color: #333;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            margin: 20px 0 10px;
+            color: #555;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .screens-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .screen {
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+            width: 290px;
+            height: 580px;
+            padding: 15px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .screen-inner {
+            background: #f8f8f8;
+            border-radius: 20px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .screen-title {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .feature-list {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 8px;
+        }
+        
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        
+        .color-item {
+            width: 80px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .color-box {
+            height: 80px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .persona {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .persona-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #888;
+        }
+        
+        .persona-details {
+            flex: 1;
+        }
+        
+        .typography-sample {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .font-example {
+            margin-bottom: 15px;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .icon-item {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .screen-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .status-bar {
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 12px;
+            color: #333;
+        }
+        
+        .nav-bar {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tab-bar {
+            height: 70px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #eee;
+            background-color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 10px;
+            color: #888;
+        }
+        
+        .tab-item.active {
+            color: #6A8CAF;
+        }
+        
+        .content-area {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .button {
+            background-color: #6A8CAF;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            margin: 8px 0;
+        }
+        
+        .button.secondary {
+            background-color: transparent;
+            color: #6A8CAF;
+            border: 1px solid #6A8CAF;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .input-field {
+            background-color: #f5f5f7;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .guide-box {
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .flow-title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>静心 - 冥想App产品原型</h1>
+        
+        <div class="section">
+            <h2>产品概述</h2>
+            <p>"静心"是一款以提升用户心理健康为目标的冥想App，旨在帮助现代人缓解压力、改善睡眠、提高专注力和情绪管理能力。通过提供引导式冥想、睡眠故事、放松音乐和呼吸练习等多样化内容，"静心"致力于让冥想变得简单、有趣且高效。</p>
+        </div>
+        
+        <div class="section">
+            <h2>用户分析</h2>
+            
+            <h3>用户痛点</h3>
+            <ul class="feature-list">
+                <li><strong>工作压力大</strong>：现代都市人面临高强度工作、绩效压力、人际关系等多重压力源</li>
+                <li><strong>睡眠质量差</strong>：失眠、浅眠和睡眠不规律，导致白天精力不足和情绪波动</li>
+                <li><strong>专注力不足</strong>：智能手机和社交媒体导致的注意力分散问题越来越严重</li>
+                <li><strong>情绪管理困难</strong>：焦虑、抑郁等负面情绪影响生活质量</li>
+                <li><strong>缺乏坚持</strong>：冥想需要长期坚持才能见效，但许多人难以建立习惯</li>
+                <li><strong>入门困难</strong>：冥想初学者不知从何开始，缺乏指导与反馈</li>
+            </ul>
+            
+            <h3>用户需求</h3>
+            <ul class="feature-list">
+                <li><strong>便捷性</strong>：随时随地可以进行冥想，适合不同场景和时间段</li>
+                <li><strong>个性化</strong>：根据个人需求、状态和进度提供定制化内容</li>
+                <li><strong>引导式体验</strong>：专业的语音引导，帮助用户掌握正确的冥想方法</li>
+                <li><strong>进度追踪</strong>：记录冥想习惯和进步，提供成就感和动力</li>
+                <li><strong>社区支持</strong>：与志同道合的人交流经验，互相鼓励</li>
+                <li><strong>科学性</strong>：基于心理学和脑科学的内容，确保效果可靠</li>
+            </ul>
+            
+            <h3>用户画像</h3>
+            
+            <div class="persona">
+                <div class="persona-image">李</div>
+                <div class="persona-details">
+                    <h4>李晓华 | 28岁 | 互联网公司产品经理</h4>
+                    <p><strong>背景</strong>：互联网公司中层管理者，负责多个项目，工作压力大，经常加班</p>
+                    <p><strong>痛点</strong>：晚上难以入睡，经常失眠；工作高压下情绪波动大；注意力容易分散</p>
+                    <p><strong>目标</strong>：改善睡眠质量，提高工作效率，保持情绪稳定</p>
+                    <p><strong>使用习惯</strong>：喜欢在睡前和午休时间使用App，期望10-15分钟的冥想能带来明显效果</p>
+                </div>
+            </div>
+            
+            <div class="persona">
+                <div class="persona-image">张</div>
+                <div class="persona-details">
+                    <h4>张明 | 35岁 | 金融行业分析师</h4>
+                    <p><strong>背景</strong>：大型金融机构工作，已婚有一个5岁的孩子，生活节奏快</p>
+                    <p><strong>痛点</strong>：工作压力大，经常感到焦虑；家庭和工作平衡困难；健康状况下滑</p>
+                    <p><strong>目标</strong>：缓解焦虑，提高身心健康水平，增强家庭关系</p>
+                    <p><strong>使用习惯</strong>：希望在通勤路上使用，也愿意尝试与家人一起冥想</p>
+                </div>
+            </div>
+            
+            <div class="persona">
+                <div class="persona-image">王</div>
+                <div class="persona-details">
+                    <h4>王丽 | 22岁 | 大学生</h4>
+                    <p><strong>背景</strong>：在读大学生，面临学业和就业双重压力，渴望自我成长</p>
+                    <p><strong>痛点</strong>：考试焦虑，社交压力，自我怀疑，时间管理困难</p>
+                    <p><strong>目标</strong>：增强自信心，提高学习效率，培养自律习惯</p>
+                    <p><strong>使用习惯</strong>：喜欢在早晨和学习间隙使用，对内容新颖性和社交互动有较高需求</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>产品功能规划</h2>
+            
+            <h3>核心功能</h3>
+            <ul class="feature-list">
+                <li><strong>引导式冥想</strong>：根据不同情景和目标提供专业语音引导的冥想课程</li>
+                <li><strong>睡眠助眠</strong>：睡眠故事、白噪音、助眠音乐等帮助用户改善睡眠质量</li>
+                <li><strong>呼吸练习</strong>：各种呼吸技巧练习，帮助用户迅速放松或提升专注力</li>
+                <li><strong>正念音乐</strong>：专为冥想和放松设计的背景音乐和大自然声音</li>
+                <li><strong>冥想计时器</strong>：自定义冥想时长和提示铃声的计时工具</li>
+                <li><strong>情绪记录</strong>：记录每日情绪变化，生成情绪报告</li>
+            </ul>
+            
+            <h3>特色功能</h3>
+            <ul class="feature-list">
+                <li><strong>个性化推荐</strong>：基于用户习惯、目标和反馈，智能推荐适合的内容</li>
+                <li><strong>习惯养成系统</strong>：签到、提醒和成就体系，激励用户坚持冥想</li>
+                <li><strong>冥想社区</strong>：分享经验、互相鼓励的社交平台</li>
+                <li><strong>冥想进度追踪</strong>：可视化展示冥想习惯和效果数据</li>
+                <li><strong>情景模式</strong>：针对特定场景（工作、旅行、家庭等）的定制内容</li>
+                <li><strong>家庭冥想</strong>：专为亲子互动设计的冥想内容</li>
+            </ul>
+            
+            <h3>产品目标</h3>
+            <ul class="feature-list">
+                <li><strong>易用性</strong>：简洁直观的界面，让用户快速上手</li>
+                <li><strong>个性化</strong>：根据用户需求和状态提供定制内容</li>
+                <li><strong>粘性</strong>：通过习惯培养和社区互动增强用户留存</li>
+                <li><strong>专业性</strong>：结合科学研究和专业指导，确保内容有效</li>
+                <li><strong>持续迭代</strong>：根据用户反馈不断优化产品体验</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>设计系统</h2>
+            
+            <h3>品牌定位</h3>
+            <p>"静心"的设计理念围绕"平静、简约、温暖"展开，旨在创造一个让用户感到舒适、安心的数字空间。UI风格采用简约现代设计，柔和的色彩和流畅的交互，营造宁静放松的氛围。</p>
+            
+            <h3>色彩系统</h3>
+            <p>色彩选择以舒缓、自然的色调为主，传达平静、安宁的感觉。</p>
+            
+            <div class="color-palette">
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #6A8CAF;"></div>
+                    <span>主色调</span>
+                    <small>#6A8CAF</small>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #A0B9D9;"></div>
+                    <span>次要色</span>
+                    <small>#A0B9D9</small>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #F1F6FB;"></div>
+                    <span>背景色</span>
+                    <small>#F1F6FB</small>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #65B891;"></div>
+                    <span>强调色1</span>
+                    <small>#65B891</small>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #FFB17A;"></div>
+                    <span>强调色2</span>
+                    <small>#FFB17A</small>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #303030;"></div>
+                    <span>主文本</span>
+                    <small>#303030</small>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #717171;"></div>
+                    <span>次要文本</span>
+                    <small>#717171</small>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #E0E0E0;"></div>
+                    <span>分割线</span>
+                    <small>#E0E0E0</small>
+                </div>
+            </div>
+            
+            <h3>字体系统</h3>
+            <div class="typography-sample">
+                <div class="font-example" style="font-size: 28px; font-weight: 600;">标题一 (28px Bold)</div>
+                <div class="font-example" style="font-size: 22px; font-weight: 600;">标题二 (22px Bold)</div>
+                <div class="font-example" style="font-size: 18px; font-weight: 600;">标题三 (18px Bold)</div>
+                <div class="font-example" style="font-size: 16px; font-weight: 400;">正文 (16px Regular)</div>
+                <div class="font-example" style="font-size: 14px; font-weight: 400;">次要文本 (14px Regular)</div>
+                <div class="font-example" style="font-size: 12px; font-weight: 400;">辅助文本 (12px Regular)</div>
+            </div>
+            
+            <h3>图标风格</h3>
+            <p>图标采用线性风格，简洁明了，柔和圆角，保持视觉一致性。</p>
+            <div class="icon-grid">
+                <div class="icon-item">🏠</div>
+                <div class="icon-item">🎵</div>
+                <div class="icon-item">💤</div>
+                <div class="icon-item">📊</div>
+                <div class="icon-item">👥</div>
+                <div class="icon-item">⚙️</div>
+                <div class="icon-item">❤️</div>
+                <div class="icon-item">🔔</div>
+                <div class="icon-item">🎯</div>
+                <div class="icon-item">📝</div>
+                <div class="icon-item">🕒</div>
+                <div class="icon-item">🔍</div>
+            </div>
+            
+            <h3>组件设计</h3>
+            <p>界面组件采用卡片式设计，圆角柔和，适当的阴影增加层次感。交互元素采用微动效，给用户即时反馈，增强体验流畅度。</p>
+        </div>
+        
+        <div class="section">
+            <h2>UI原型页面</h2>
+            
+            <div class="flow-title">注册/登录流程</div>
+            <div class="screens-container">
+                <!-- 启动页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #6A8CAF; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; padding: 20px;">
+                        <div style="font-size: 60px; margin-bottom: 20px;">🧘‍♀️</div>
+                        <div style="font-size: 32px; font-weight: bold; margin-bottom: 10px;">静心</div>
+                        <div style="font-size: 16px; opacity: 0.9;">每天一刻钟，平静内心世界</div>
+                    </div>
+                    <div class="screen-title">启动页</div>
+                </div>
+                
+                <!-- 欢迎页1 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+                                <div style="text-align: center; margin-bottom: 40px;">
+                                    <div style="width: 200px; height: 200px; background-color: #A0B9D9; border-radius: 100px; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center;">
+                                        <span style="font-size: 80px;">😌</span>
+                                    </div>
+                                    <h2 style="font-size: 22px; margin-bottom: 10px;">缓解压力，平静内心</h2>
+                                    <p style="font-size: 14px; color: #666; line-height: 1.5;">通过专业引导的冥想，帮助你摆脱压力，重获平静</p>
+                                </div>
+                                <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                                    <div style="width: 8px; height: 8px; background-color: #6A8CAF; border-radius: 4px; margin: 0 4px;"></div>
+                                    <div style="width: 8px; height: 8px; background-color: #D0D0D0; border-radius: 4px; margin: 0 4px;"></div>
+                                    <div style="width: 8px; height: 8px; background-color: #D0D0D0; border-radius: 4px; margin: 0 4px;"></div>
+                                </div>
+                                <div class="button" style="width: 100%;">下一步</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">欢迎页1</div>
+                </div>
+                
+                <!-- 欢迎页2 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+                                <div style="text-align: center; margin-bottom: 40px;">
+                                    <div style="width: 200px; height: 200px; background-color: #FFB17A; border-radius: 100px; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center;">
+                                        <span style="font-size: 80px;">💤</span>
+                                    </div>
+                                    <h2 style="font-size: 22px; margin-bottom: 10px;">改善睡眠，唤醒活力</h2>
+                                    <p style="font-size: 14px; color: #666; line-height: 1.5;">让睡眠故事和助眠音乐，帮你进入深度睡眠</p>
+                                </div>
+                                <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                                    <div style="width: 8px; height: 8px; background-color: #D0D0D0; border-radius: 4px; margin: 0 4px;"></div>
+                                    <div style="width: 8px; height: 8px; background-color: #6A8CAF; border-radius: 4px; margin: 0 4px;"></div>
+                                    <div style="width: 8px; height: 8px; background-color: #D0D0D0; border-radius: 4px; margin: 0 4px;"></div>
+                                </div>
+                                <div class="button" style="width: 100%;">下一步</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">欢迎页2</div>
+                </div>
+                
+                <!-- 欢迎页3 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+                                <div style="text-align: center; margin-bottom: 40px;">
+                                    <div style="width: 200px; height: 200px; background-color: #65B891; border-radius: 100px; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center;">
+                                        <span style="font-size: 80px;">🧠</span>
+                                    </div>
+                                    <h2 style="font-size: 22px; margin-bottom: 10px;">提升专注，释放潜能</h2>
+                                    <p style="font-size: 14px; color: #666; line-height: 1.5;">通过正念训练，提高注意力和工作效率</p>
+                                </div>
+                                <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                                    <div style="width: 8px; height: 8px; background-color: #D0D0D0; border-radius: 4px; margin: 0 4px;"></div>
+                                    <div style="width: 8px; height: 8px; background-color: #D0D0D0; border-radius: 4px; margin: 0 4px;"></div>
+                                    <div style="width: 8px; height: 8px; background-color: #6A8CAF; border-radius: 4px; margin: 0 4px;"></div>
+                                </div>
+                                <div class="button" style="width: 100%;">开始体验</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">欢迎页3</div>
+                </div>
+                
+                <!-- 注册/登录页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div style="padding: 20px; flex: 1; display: flex; flex-direction: column;">
+                                <div style="text-align: center; margin: 40px 0;">
+                                    <div style="font-size: 60px; margin-bottom: 10px;">🧘‍♀️</div>
+                                    <div style="font-size: 28px; font-weight: bold;">静心</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div class="input-field">手机号</div>
+                                    <div class="input-field">验证码 <span style="float: right; color: #6A8CAF;">获取验证码</span></div>
+                                    <div class="button" style="width: 100%; margin-top: 20px;">登录/注册</div>
+                                    <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #666;">
+                                        <div>其他登录方式</div>
+                                        <div style="display: flex; justify-content: center; margin-top: 20px;">
+                                            <div style="width: 40px; height: 40px; background-color: #fff; border-radius: 20px; margin: 0 10px; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span>微</span>
+                                            </div>
+                                            <div style="width: 40px; height: 40px; background-color: #fff; border-radius: 20px; margin: 0 10px; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span>Q</span>
+                                            </div>
+                                            <div style="width: 40px; height: 40px; background-color: #fff; border-radius: 20px; margin: 0 10px; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span>苹</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="font-size: 12px; color: #999; text-align: center; margin-bottom: 20px;">
+                                    登录即代表您同意<span style="color: #6A8CAF;">《用户协议》</span>和<span style="color: #6A8CAF;">《隐私政策》</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">注册/登录页</div>
+                </div>
+                
+                <!-- 用户资料页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div class="nav-bar">
+                                <div>跳过</div>
+                                <div style="font-weight: bold;">基本资料</div>
+                                <div></div>
+                            </div>
+                            <div style="padding: 20px; flex: 1;">
+                                <div style="text-align: center; margin-bottom: 30px;">
+                                    <p style="font-size: 16px; color: #666; margin-bottom: 10px;">帮助我们提供个性化的体验</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 16px; margin-bottom: 10px;">您的名字</div>
+                                    <div class="input-field">请输入您的名字</div>
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 16px; margin-bottom: 10px;">您的性别</div>
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1; padding: 12px; background-color: #6A8CAF; color: white; border-radius: 8px; text-align: center;">男</div>
+                                        <div style="flex: 1; padding: 12px; background-color: #f5f5f7; border-radius: 8px; text-align: center;">女</div>
+                                        <div style="flex: 1; padding: 12px; background-color: #f5f5f7; border-radius: 8px; text-align: center;">其他</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 16px; margin-bottom: 10px;">您的年龄</div>
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1; padding: 12px; background-color: #f5f5f7; border-radius: 8px; text-align: center;">18-24</div>
+                                        <div style="flex: 1; padding: 12px; background-color: #6A8CAF; color: white; border-radius: 8px; text-align: center;">25-34</div>
+                                        <div style="flex: 1; padding: 12px; background-color: #f5f5f7; border-radius: 8px; text-align: center;">35+</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 16px; margin-bottom: 10px;">冥想经验</div>
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1; padding: 12px; background-color: #6A8CAF; color: white; border-radius: 8px; text-align: center;">新手</div>
+                                        <div style="flex: 1; padding: 12px; background-color: #f5f5f7; border-radius: 8px; text-align: center;">有经验</div>
+                                        <div style="flex: 1; padding: 12px; background-color: #f5f5f7; border-radius: 8px; text-align: center;">资深</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="button" style="width: 100%; margin-top: 30px;">完成</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">用户资料页</div>
+                </div>
+            </div>
+            
+            <div class="flow-title">主要功能流程</div>
+            <div class="screens-container">
+                <!-- 首页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div style="padding: 15px 15px 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                    <div style="font-size: 24px; font-weight: 600;">你好，李晓华</div>
+                                    <div style="width: 40px; height: 40px; background-color: #FFB17A; border-radius: 20px; display: flex; justify-content: center; align-items: center;">
+                                        <span style="color: white;">李</span>
+                                    </div>
+                                </div>
+                                <div style="font-size: 14px; color: #666; margin-bottom: 20px;">今天适合进行一次冥想，放松一下吧</div>
+                            </div>
+                            
+                            <div class="content-area">
+                                <!-- 今日推荐 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <div style="font-size: 18px; font-weight: 600;">今日推荐</div>
+                                        <div style="font-size: 12px; color: #6A8CAF;">查看全部</div>
+                                    </div>
+                                    <div style="position: relative; border-radius: 15px; overflow: hidden; height: 160px; margin-bottom: 10px;">
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(106, 140, 175, 0.9), rgba(106, 140, 175, 0.6)); z-index: 1;"></div>
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 20px; color: white;">
+                                            <div style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">早晨5分钟冥想</div>
+                                            <div style="font-size: 14px; opacity: 0.9; margin-bottom: 15px;">开启美好一天的正能量</div>
+                                            <div style="display: flex; align-items: center; font-size: 12px;">
+                                                <span>5分钟</span>
+                                                <span style="margin: 0 10px;">•</span>
+                                                <span>初级</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 热门课程 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <div style="font-size: 18px; font-weight: 600;">热门课程</div>
+                                        <div style="font-size: 12px; color: #6A8CAF;">更多</div>
+                                    </div>
+                                    
+                                    <div style="display: flex; overflow-x: auto; padding-bottom: 10px; gap: 12px;">
+                                        <!-- 课程卡片1 -->
+                                        <div style="min-width: 150px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                            <div style="height: 100px; background-color: #A0B9D9; display: flex; justify-content: center; align-items: center;">
+                                                <span style="font-size: 40px;">🌊</span>
+                                            </div>
+                                            <div style="padding: 10px;">
+                                                <div style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">舒缓压力</div>
+                                                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">10分钟 • 初级</div>
+                                                <div style="font-size: 12px;">
+                                                    <span style="color: #FFB17A;">★★★★</span><span style="color: #ccc;">★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 课程卡片2 -->
+                                        <div style="min-width: 150px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                            <div style="height: 100px; background-color: #65B891; display: flex; justify-content: center; align-items: center;">
+                                                <span style="font-size: 40px;">🧠</span>
+                                            </div>
+                                            <div style="padding: 10px;">
+                                                <div style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">专注力训练</div>
+                                                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">15分钟 • 中级</div>
+                                                <div style="font-size: 12px;">
+                                                    <span style="color: #FFB17A;">★★★★★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 课程卡片3 -->
+                                        <div style="min-width: 150px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                            <div style="height: 100px; background-color: #FFB17A; display: flex; justify-content: center; align-items: center;">
+                                                <span style="font-size: 40px;">💤</span>
+                                            </div>
+                                            <div style="padding: 10px;">
+                                                <div style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">睡前放松</div>
+                                                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">20分钟 • 所有级别</div>
+                                                <div style="font-size: 12px;">
+                                                    <span style="color: #FFB17A;">★★★★</span><span style="color: #ccc;">★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 冥想统计 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">本周冥想</div>
+                                    <div class="card">
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                            <div>
+                                                <div style="font-size: 14px; color: #666; margin-bottom: 5px;">总时长</div>
+                                                <div style="font-size: 20px; font-weight: bold;">45分钟</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 14px; color: #666; margin-bottom: 5px;">次数</div>
+                                                <div style="font-size: 20px; font-weight: bold;">5次</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 14px; color: #666; margin-bottom: 5px;">连续</div>
+                                                <div style="font-size: 20px; font-weight: bold;">3天</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">一</div>
+                                                <div style="width: 24px; height: 24px; background-color: #6A8CAF; border-radius: 12px; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-size: 10px;">✓</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">二</div>
+                                                <div style="width: 24px; height: 24px; background-color: #6A8CAF; border-radius: 12px; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-size: 10px;">✓</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">三</div>
+                                                <div style="width: 24px; height: 24px; background-color: #6A8CAF; border-radius: 12px; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-size: 10px;">✓</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">四</div>
+                                                <div style="width: 24px; height: 24px; background-color: #E0E0E0; border-radius: 12px; margin: 0 auto;"></div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">五</div>
+                                                <div style="width: 24px; height: 24px; background-color: #E0E0E0; border-radius: 12px; margin: 0 auto;"></div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">六</div>
+                                                <div style="width: 24px; height: 24px; background-color: #6A8CAF; border-radius: 12px; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-size: 10px;">✓</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">日</div>
+                                                <div style="width: 24px; height: 24px; background-color: #6A8CAF; border-radius: 12px; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-size: 10px;">✓</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 底部导航 -->
+                            <div class="tab-bar">
+                                <div class="tab-item active">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🏠</div>
+                                    <span>首页</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🔍</div>
+                                    <span>发现</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">💤</div>
+                                    <span>睡眠</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">👤</div>
+                                    <span>我的</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">首页</div>
+                </div>
+                
+                <!-- 发现页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div style="padding: 15px 15px 0;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="font-size: 24px; font-weight: 600; margin-right: 15px;">发现</div>
+                                    <div style="flex: 1; position: relative;">
+                                        <div style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #999;">🔍</div>
+                                        <input type="text" placeholder="搜索冥想课程" style="width: 100%; padding: 8px 8px 8px 30px; border-radius: 20px; border: none; background-color: #fff; font-size: 14px; outline: none;">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="content-area">
+                                <!-- 分类标签 -->
+                                <div style="display: flex; overflow-x: auto; gap: 10px; margin-bottom: 20px; padding-bottom: 5px;">
+                                    <div style="min-width: fit-content; padding: 8px 15px; background-color: #6A8CAF; color: white; border-radius: 20px; font-size: 14px;">推荐</div>
+                                    <div style="min-width: fit-content; padding: 8px 15px; background-color: white; border-radius: 20px; font-size: 14px;">减压</div>
+                                    <div style="min-width: fit-content; padding: 8px 15px; background-color: white; border-radius: 20px; font-size: 14px;">专注</div>
+                                    <div style="min-width: fit-content; padding: 8px 15px; background-color: white; border-radius: 20px; font-size: 14px;">睡眠</div>
+                                    <div style="min-width: fit-content; padding: 8px 15px; background-color: white; border-radius: 20px; font-size: 14px;">情绪</div>
+                                    <div style="min-width: fit-content; padding: 8px 15px; background-color: white; border-radius: 20px; font-size: 14px;">呼吸</div>
+                                </div>
+                                
+                                <!-- 专题系列 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">精选专题</div>
+                                    
+                                    <!-- 专题卡片 -->
+                                    <div style="position: relative; border-radius: 15px; overflow: hidden; height: 140px; margin-bottom: 15px;">
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(101, 184, 145, 0.9), rgba(101, 184, 145, 0.6)); z-index: 1;"></div>
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 20px; color: white;">
+                                            <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">工作效率提升</div>
+                                            <div style="font-size: 14px; opacity: 0.9; margin-bottom: 10px;">5节课 • 总时长45分钟</div>
+                                            <div style="display: flex; align-items: center; font-size: 12px; background-color: rgba(255,255,255,0.2); width: fit-content; padding: 4px 10px; border-radius: 12px;">
+                                                立即学习
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 专题卡片 -->
+                                    <div style="position: relative; border-radius: 15px; overflow: hidden; height: 140px; margin-bottom: 15px;">
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(255, 177, 122, 0.9), rgba(255, 177, 122, 0.6)); z-index: 1;"></div>
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 20px; color: white;">
+                                            <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">七日睡眠改善</div>
+                                            <div style="font-size: 14px; opacity: 0.9; margin-bottom: 10px;">7节课 • 总时长90分钟</div>
+                                            <div style="display: flex; align-items: center; font-size: 12px; background-color: rgba(255,255,255,0.2); width: fit-content; padding: 4px 10px; border-radius: 12px;">
+                                                立即学习
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 热门课程 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">热门课程</div>
+                                    
+                                    <!-- 课程列表 -->
+                                    <div class="card" style="display: flex; margin-bottom: 15px;">
+                                        <div style="width: 80px; height: 80px; background-color: #A0B9D9; border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                                            <span style="font-size: 30px;">🌊</span>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div style="font-size: 16px; font-weight: 500; margin-bottom: 5px;">职场减压冥想</div>
+                                            <div style="font-size: 12px; color: #666; margin-bottom: 5px;">帮助你在忙碌的工作中找到平静</div>
+                                            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
+                                                <div>15分钟 • 中级</div>
+                                                <div style="color: #FFB17A;">★★★★★</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card" style="display: flex; margin-bottom: 15px;">
+                                        <div style="width: 80px; height: 80px; background-color: #65B891; border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                                            <span style="font-size: 30px;">🧠</span>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div style="font-size: 16px; font-weight: 500; margin-bottom: 5px;">专注力冥想</div>
+                                            <div style="font-size: 12px; color: #666; margin-bottom: 5px;">提升注意力和工作效率</div>
+                                            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
+                                                <div>10分钟 • 所有级别</div>
+                                                <div style="color: #FFB17A;">★★★★★</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card" style="display: flex;">
+                                        <div style="width: 80px; height: 80px; background-color: #FFB17A; border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                                            <span style="font-size: 30px;">💤</span>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div style="font-size: 16px; font-weight: 500; margin-bottom: 5px;">深度睡眠引导</div>
+                                            <div style="font-size: 12px; color: #666; margin-bottom: 5px;">缓解失眠，改善睡眠质量</div>
+                                            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
+                                                <div>20分钟 • 初级</div>
+                                                <div style="color: #FFB17A;">★★★★★</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 底部导航 -->
+                            <div class="tab-bar">
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🏠</div>
+                                    <span>首页</span>
+                                </div>
+                                <div class="tab-item active">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🔍</div>
+                                    <span>发现</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">💤</div>
+                                    <span>睡眠</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">👤</div>
+                                    <span>我的</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">发现页</div>
+                </div>
+                
+                <!-- 课程详情页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            
+                            <!-- 顶部图片 -->
+                            <div style="position: relative; height: 200px;">
+                                <div style="position: absolute; top: 15px; left: 15px; z-index: 2; width: 36px; height: 36px; background-color: rgba(255,255,255,0.3); border-radius: 18px; display: flex; justify-content: center; align-items: center; color: white;">
+                                    ←
+                                </div>
+                                <div style="position: absolute; top: 15px; right: 15px; z-index: 2; width: 36px; height: 36px; background-color: rgba(255,255,255,0.3); border-radius: 18px; display: flex; justify-content: center; align-items: center; color: white;">
+                                    ♡
+                                </div>
+                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(106, 140, 175, 0.8), rgba(106, 140, 175, 1)); z-index: 1; display: flex; justify-content: center; align-items: center;">
+                                    <span style="font-size: 80px;">🌊</span>
+                                </div>
+                            </div>
+                            
+                            <div class="content-area">
+                                <div style="padding: 0 5px;">
+                                    <!-- 标题信息 -->
+                                    <div style="margin-bottom: 20px;">
+                                        <h2 style="font-size: 22px; margin-bottom: 10px;">专注力冥想</h2>
+                                        <div style="display: flex; justify-content: space-between; font-size: 14px; color: #666; margin-bottom: 10px;">
+                                            <div>10分钟 • 所有级别</div>
+                                            <div style="color: #FFB17A;">★★★★★ (328)</div>
+                                        </div>
+                                        <div style="font-size: 14px; color: #666;">
+                                            导师: 李静 | 播放次数: 12,543
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 简介 -->
+                                    <div style="margin-bottom: 20px;">
+                                        <div style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">课程简介</div>
+                                        <p style="font-size: 14px; line-height: 1.6; color: #333;">
+                                            这节专注力冥想课程将帮助你提高注意力和工作效率。通过正念呼吸和引导式注意力训练，减少分心，增强专注能力。非常适合在工作或学习前进行，帮助你进入高效状态。
+                                        </p>
+                                    </div>
+                                    
+                                    <!-- 适合人群 -->
+                                    <div style="margin-bottom: 20px;">
+                                        <div style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">适合人群</div>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                            <div style="padding: 6px 12px; background-color: #F1F6FB; border-radius: 15px; font-size: 12px; border: 1px solid #E0E0E0;">注意力不集中</div>
+                                            <div style="padding: 6px 12px; background-color: #F1F6FB; border-radius: 15px; font-size: 12px; border: 1px solid #E0E0E0;">工作压力大</div>
+                                            <div style="padding: 6px 12px; background-color: #F1F6FB; border-radius: 15px; font-size: 12px; border: 1px solid #E0E0E0;">学生备考</div>
+                                            <div style="padding: 6px 12px; background-color: #F1F6FB; border-radius: 15px; font-size: 12px; border: 1px solid #E0E0E0;">提升效率</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 用户评价 -->
+                                    <div style="margin-bottom: 20px;">
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                            <div style="font-size: 16px; font-weight: 600;">用户评价</div>
+                                            <div style="font-size: 12px; color: #6A8CAF;">查看全部</div>
+                                        </div>
+                                        
+                                        <div style="background-color: white; border-radius: 12px; padding: 15px; margin-bottom: 10px;">
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                                <div style="display: flex; align-items: center;">
+                                                    <div style="width: 30px; height: 30px; background-color: #FFB17A; border-radius: 15px; display: flex; justify-content: center; align-items: center; margin-right: 10px; color: white;">
+                                                        张
+                                                    </div>
+                                                    <div>张先生</div>
+                                                </div>
+                                                <div style="color: #FFB17A; font-size: 12px;">★★★★★</div>
+                                            </div>
+                                            <p style="font-size: 14px; line-height: 1.5;">
+                                                非常有效的专注力训练，语音引导很舒缓，每天用来开始工作，效率提高了不少！
+                                            </p>
+                                        </div>
+                                        
+                                        <div style="background-color: white; border-radius: 12px; padding: 15px;">
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                                <div style="display: flex; align-items: center;">
+                                                    <div style="width: 30px; height: 30px; background-color: #A0B9D9; border-radius: 15px; display: flex; justify-content: center; align-items: center; margin-right: 10px; color: white;">
+                                                        王
+                                                    </div>
+                                                    <div>王同学</div>
+                                                </div>
+                                                <div style="color: #FFB17A; font-size: 12px;">★★★★★</div>
+                                            </div>
+                                            <p style="font-size: 14px; line-height: 1.5;">
+                                                考试前听一遍，心情平静很多，注意力也更集中了，推荐给所有备考的同学！
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 底部操作栏 -->
+                            <div style="height: 80px; background-color: white; display: flex; align-items: center; padding: 0 15px; border-top: 1px solid #eee;">
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div class="button" style="width: 100%;">开始冥想</div>
+                                </div>
+                                <div style="width: 44px; height: 44px; background-color: #F1F6FB; border-radius: 22px; display: flex; justify-content: center; align-items: center;">
+                                    <span style="font-size: 20px;">↓</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">课程详情页</div>
+                </div>
+            </div>
+            
+            <div class="flow-title">冥想体验流程</div>
+            <div class="screens-container">
+                <!-- 冥想准备页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div class="nav-bar">
+                                <div>←</div>
+                                <div style="font-weight: bold;">准备冥想</div>
+                                <div></div>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+                                <div>
+                                    <div style="text-align: center; margin-bottom: 30px;">
+                                        <div style="width: 120px; height: 120px; background-color: #6A8CAF; border-radius: 60px; margin: 0 auto 15px; display: flex; justify-content: center; align-items: center;">
+                                            <span style="font-size: 50px; color: white;">🧘‍♀️</span>
+                                        </div>
+                                        <h2 style="font-size: 20px; margin-bottom: 10px;">专注力冥想</h2>
+                                        <p style="font-size: 14px; color: #666;">10分钟 • 所有级别</p>
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 30px;">
+                                        <h3 style="font-size: 16px; margin-bottom: 10px;">准备事项</h3>
+                                        <ul style="list-style: none; padding: 0;">
+                                            <li style="margin-bottom: 12px; display: flex; align-items: center; font-size: 14px;">
+                                                <span style="width: 24px; height: 24px; background-color: #F1F6FB; border: 1px solid #E0E0E0; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-right: 10px;">1</span>
+                                                找一个安静、舒适的地方坐下
+                                            </li>
+                                            <li style="margin-bottom: 12px; display: flex; align-items: center; font-size: 14px;">
+                                                <span style="width: 24px; height: 24px; background-color: #F1F6FB; border: 1px solid #E0E0E0; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-right: 10px;">2</span>
+                                                关闭手机通知，避免打扰
+                                            </li>
+                                            <li style="margin-bottom: 12px; display: flex; align-items: center; font-size: 14px;">
+                                                <span style="width: 24px; height: 24px; background-color: #F1F6FB; border: 1px solid #E0E0E0; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-right: 10px;">3</span>
+                                                可以使用耳机获得更好的体验
+                                            </li>
+                                            <li style="display: flex; align-items: center; font-size: 14px;">
+                                                <span style="width: 24px; height: 24px; background-color: #F1F6FB; border: 1px solid #E0E0E0; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-right: 10px;">4</span>
+                                                深呼吸，放松身心
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="card" style="display: flex; align-items: center;">
+                                        <div style="width: 40px; height: 40px; background-color: #65B891; border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                            🔔
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div style="font-size: 14px; font-weight: 500; margin-bottom: 3px;">提醒</div>
+                                            <div style="font-size: 12px; color: #666;">冥想结束后会有柔和的铃声提醒</div>
+                                        </div>
+                                        <div style="width: 40px; text-align: right;">
+                                            <div style="width: 36px; height: 20px; background-color: #6A8CAF; border-radius: 10px; position: relative;">
+                                                <div style="width: 16px; height: 16px; background-color: white; border-radius: 8px; position: absolute; right: 2px; top: 2px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="button" style="width: 100%;">开始冥想</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">冥想准备页</div>
+                </div>
+                
+                <!-- 冥想进行页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background: linear-gradient(to bottom, #6A8CAF, #A0B9D9);">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span style="color: white;">9:41</span>
+                                <span style="color: white;">📶 📶 100%</span>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; color: white;">
+                                <div style="text-align: center; padding-top: 30px;">
+                                    <div style="font-size: 14px; margin-bottom: 10px;">正在进行</div>
+                                    <h2 style="font-size: 20px; margin-bottom: 30px;">专注力冥想</h2>
+                                </div>
+                                
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <!-- 进度环 -->
+                                    <div style="width: 220px; height: 220px; border-radius: 110px; background-color: rgba(255,255,255,0.1); position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 40px;">
+                                        <!-- 模拟进度 -->
+                                        <div style="width: 200px; height: 200px; border-radius: 100px; background: conic-gradient(#F1F6FB 0%, transparent 40%); position: absolute;"></div>
+                                        <!-- 内圈 -->
+                                        <div style="width: 180px; height: 180px; border-radius: 90px; background: linear-gradient(to bottom, #6A8CAF, #A0B9D9); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                            <div style="font-size: 36px; font-weight: 200;">06:12</div>
+                                            <div style="font-size: 14px; opacity: 0.7;">剩余时间</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 当前引导提示 -->
+                                    <div style="text-align: center; margin-bottom: 40px;">
+                                        <p style="font-size: 16px; line-height: 1.6; margin-bottom: 10px;">
+                                            "将注意力集中在你的呼吸上，感受空气进入和离开身体的感觉..."
+                                        </p>
+                                        <p style="font-size: 14px; opacity: 0.7;">
+                                            李静老师正在引导
+                                        </p>
+                                    </div>
+                                    
+                                    <!-- 控制按钮 -->
+                                    <div style="display: flex; justify-content: center; align-items: center; gap: 40px;">
+                                        <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.2); border-radius: 25px; display: flex; justify-content: center; align-items: center;">
+                                            ↩️
+                                        </div>
+                                        <div style="width: 60px; height: 60px; background-color: rgba(255,255,255,0.3); border-radius: 30px; display: flex; justify-content: center; align-items: center;">
+                                            ⏸️
+                                        </div>
+                                        <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.2); border-radius: 25px; display: flex; justify-content: center; align-items: center;">
+                                            ↪️
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div style="text-align: center;">
+                                    <div style="opacity: 0.7; font-size: 14px; margin-bottom: 10px;">点击退出冥想</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">冥想进行页</div>
+                </div>
+                
+                <!-- 冥想完成页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+                                <div>
+                                    <div style="text-align: center; margin: 40px 0;">
+                                        <div style="width: 120px; height: 120px; background-color: #65B891; border-radius: 60px; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center;">
+                                            <span style="font-size: 50px;">✨</span>
+                                        </div>
+                                        <h2 style="font-size: 24px; margin-bottom: 10px;">冥想完成</h2>
+                                        <p style="font-size: 16px; color: #666;">你已坚持冥想3天 🎉</p>
+                                    </div>
+                                    
+                                    <div class="card" style="margin-bottom: 20px;">
+                                        <h3 style="font-size: 16px; margin-bottom: 15px;">本次冥想</h3>
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                            <div>
+                                                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">时长</div>
+                                                <div style="font-size: 18px; font-weight: bold;">10:00</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">课程</div>
+                                                <div style="font-size: 18px; font-weight: bold;">专注力冥想</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">等级</div>
+                                                <div style="font-size: 18px; font-weight: bold;">初级</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <h3 style="font-size: 16px; margin-bottom: 15px;">感受如何？</h3>
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <div style="text-align: center; width: 60px;">
+                                                <div style="font-size: 30px; margin-bottom: 5px;">😌</div>
+                                                <div style="font-size: 12px;">平静</div>
+                                            </div>
+                                            <div style="text-align: center; width: 60px;">
+                                                <div style="font-size: 30px; margin-bottom: 5px;">😊</div>
+                                                <div style="font-size: 12px;">愉悦</div>
+                                            </div>
+                                            <div style="text-align: center; width: 60px;">
+                                                <div style="font-size: 30px; margin-bottom: 5px;">🤔</div>
+                                                <div style="font-size: 12px;">思考</div>
+                                            </div>
+                                            <div style="text-align: center; width: 60px;">
+                                                <div style="font-size: 30px; margin-bottom: 5px;">😴</div>
+                                                <div style="font-size: 12px;">困倦</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="button" style="width: 100%; margin-bottom: 15px;">分享体验</div>
+                                    <div class="button secondary" style="width: 100%;">返回首页</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">冥想完成页</div>
+                </div>
+            </div>
+            
+            <div class="flow-title">睡眠助眠流程</div>
+            <div class="screens-container">
+                <!-- 睡眠页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div style="padding: 15px 15px 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                    <div style="font-size: 24px; font-weight: 600;">睡眠</div>
+                                    <div style="width: 40px; height: 40px; background-color: #FFB17A; border-radius: 20px; display: flex; justify-content: center; align-items: center;">
+                                        <span style="color: white;">李</span>
+                                    </div>
+                                </div>
+                                <div style="font-size: 14px; color: #666; margin-bottom: 20px;">晚上好，准备好入睡了吗？</div>
+                            </div>
+                            
+                            <div class="content-area">
+                                <!-- 睡眠报告 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <div style="font-size: 18px; font-weight: 600;">睡眠报告</div>
+                                        <div style="font-size: 12px; color: #6A8CAF;">查看详情</div>
+                                    </div>
+                                    <div class="card">
+                                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                            <div style="width: 60px; height: 60px; background-color: #A0B9D9; border-radius: 30px; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                                                <span style="font-size: 30px;">💤</span>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 16px; font-weight: 500; margin-bottom: 5px;">本周平均睡眠时间</div>
+                                                <div style="font-size: 20px; font-weight: bold; color: #6A8CAF;">7小时12分钟</div>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">一</div>
+                                                <div style="height: 60px; position: relative;">
+                                                    <div style="width: 10px; height: 40px; background-color: #6A8CAF; border-radius: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                                                </div>
+                                                <div style="font-size: 10px; margin-top: 5px;">7h</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">二</div>
+                                                <div style="height: 60px; position: relative;">
+                                                    <div style="width: 10px; height: 35px; background-color: #6A8CAF; border-radius: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                                                </div>
+                                                <div style="font-size: 10px; margin-top: 5px;">6h</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">三</div>
+                                                <div style="height: 60px; position: relative;">
+                                                    <div style="width: 10px; height: 45px; background-color: #6A8CAF; border-radius: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                                                </div>
+                                                <div style="font-size: 10px; margin-top: 5px;">8h</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">四</div>
+                                                <div style="height: 60px; position: relative;">
+                                                    <div style="width: 10px; height: 40px; background-color: #6A8CAF; border-radius: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                                                </div>
+                                                <div style="font-size: 10px; margin-top: 5px;">7h</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">五</div>
+                                                <div style="height: 60px; position: relative;">
+                                                    <div style="width: 10px; height: 45px; background-color: #6A8CAF; border-radius: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                                                </div>
+                                                <div style="font-size: 10px; margin-top: 5px;">8h</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">六</div>
+                                                <div style="height: 60px; position: relative;">
+                                                    <div style="width: 10px; height: 50px; background-color: #6A8CAF; border-radius: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                                                </div>
+                                                <div style="font-size: 10px; margin-top: 5px;">9h</div>
+                                            </div>
+                                            <div style="text-align: center; width: 30px;">
+                                                <div style="font-size: 10px; color: #999; margin-bottom: 5px;">日</div>
+                                                <div style="height: 60px; position: relative;">
+                                                    <div style="width: 10px; height: 35px; background-color: #6A8CAF; border-radius: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+                                                </div>
+                                                <div style="font-size: 10px; margin-top: 5px;">6h</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 睡前故事 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">睡前故事</div>
+                                    <div style="position: relative; border-radius: 15px; overflow: hidden; height: 140px; margin-bottom: 15px;">
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(160, 185, 217, 0.9), rgba(160, 185, 217, 0.6)); z-index: 1;"></div>
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 20px; color: white;">
+                                            <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">《雨中漫步》</div>
+                                            <div style="font-size: 14px; opacity: 0.9; margin-bottom: 10px;">20分钟 • 陈老师讲述</div>
+                                            <div style="display: flex; align-items: center;">
+                                                <div style="font-size: 24px; margin-right: 15px;">▶️</div>
+                                                <div style="font-size: 12px;">立即收听</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 助眠音乐 -->
+                                <div style="margin-bottom: 25px;">
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">助眠音乐</div>
+                                    
+                                    <div style="display: flex; overflow-x: auto; padding-bottom: 10px; gap: 12px;">
+                                        <!-- 音乐卡片1 -->
+                                        <div style="min-width: 150px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                            <div style="height: 100px; background-color: #6A8CAF; display: flex; justify-content: center; align-items: center;">
+                                                <span style="font-size: 40px;">🌧️</span>
+                                            </div>
+                                            <div style="padding: 10px;">
+                                                <div style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">雨声</div>
+                                                <div style="font-size: 12px; color: #666;">30分钟</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 音乐卡片2 -->
+                                        <div style="min-width: 150px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                            <div style="height: 100px; background-color: #A0B9D9; display: flex; justify-content: center; align-items: center;">
+                                                <span style="font-size: 40px;">🌊</span>
+                                            </div>
+                                            <div style="padding: 10px;">
+                                                <div style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">海浪</div>
+                                                <div style="font-size: 12px; color: #666;">60分钟</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 音乐卡片3 -->
+                                        <div style="min-width: 150px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                            <div style="height: 100px; background-color: #FFB17A; display: flex; justify-content: center; align-items: center;">
+                                                <span style="font-size: 40px;">🔥</span>
+                                            </div>
+                                            <div style="padding: 10px;">
+                                                <div style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">篝火</div>
+                                                <div style="font-size: 12px; color: #666;">45分钟</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 底部导航 -->
+                            <div class="tab-bar">
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🏠</div>
+                                    <span>首页</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🔍</div>
+                                    <span>发现</span>
+                                </div>
+                                <div class="tab-item active">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">💤</div>
+                                    <span>睡眠</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">👤</div>
+                                    <span>我的</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">睡眠页</div>
+                </div>
+            </div>
+            
+            <div class="flow-title">我的页面流程</div>
+            <div class="screens-container">
+                <!-- 我的页面 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            
+                            <!-- 个人信息 -->
+                            <div style="padding: 20px; background-color: white; margin-bottom: 15px;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 70px; height: 70px; background-color: #FFB17A; border-radius: 35px; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                                        <span style="color: white; font-size: 24px;">李</span>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 18px; font-weight: 500; margin-bottom: 5px;">李晓华</div>
+                                        <div style="font-size: 14px; color: #666;">冥想新手</div>
+                                    </div>
+                                    <div style="width: 30px; text-align: right; color: #999;">
+                                        >
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; justify-content: space-around; text-align: center;">
+                                    <div>
+                                        <div style="font-size: 20px; font-weight: bold; margin-bottom: 5px;">45</div>
+                                        <div style="font-size: 12px; color: #666;">累计冥想(分钟)</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 20px; font-weight: bold; margin-bottom: 5px;">5</div>
+                                        <div style="font-size: 12px; color: #666;">累计次数</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 20px; font-weight: bold; margin-bottom: 5px;">3</div>
+                                        <div style="font-size: 12px; color: #666;">连续天数</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="content-area" style="padding-top: 0;">
+                                <!-- 我的数据 -->
+                                <div class="card" style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 40px; height: 40px; background-color: #6A8CAF; border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                        📊
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 16px;">我的冥想数据</div>
+                                    </div>
+                                    <div style="width: 24px; text-align: right; color: #999;">
+                                        >
+                                    </div>
+                                </div>
+                                
+                                <!-- 我的收藏 -->
+                                <div class="card" style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 40px; height: 40px; background-color: #FFB17A; border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                        ❤️
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 16px;">我的收藏</div>
+                                    </div>
+                                    <div style="width: 24px; text-align: right; color: #999;">
+                                        >
+                                    </div>
+                                </div>
+                                
+                                <!-- 冥想提醒 -->
+                                <div class="card" style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 40px; height: 40px; background-color: #65B891; border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                        🔔
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 16px;">冥想提醒</div>
+                                    </div>
+                                    <div style="width: 24px; text-align: right; color: #999;">
+                                        >
+                                    </div>
+                                </div>
+                                
+                                <!-- 我的社区 -->
+                                <div class="card" style="display: flex; align-items: center; margin-bottom: 25px;">
+                                    <div style="width: 40px; height: 40px; background-color: #A0B9D9; border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                        👥
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 16px;">我的社区</div>
+                                    </div>
+                                    <div style="width: 24px; text-align: right; color: #999;">
+                                        >
+                                    </div>
+                                </div>
+                                
+                                <!-- 设置列表 -->
+                                <div style="margin-bottom: 15px;">
+                                    <div style="font-size: 16px; color: #666; margin-bottom: 10px; padding: 0 5px;">设置</div>
+                                    
+                                    <div class="card" style="margin-bottom: 1px;">
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 5px;">
+                                            <div>通知设置</div>
+                                            <div style="color: #999;">></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card" style="margin-bottom: 1px;">
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 5px;">
+                                            <div>隐私设置</div>
+                                            <div style="color: #999;">></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card" style="margin-bottom: 1px;">
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 5px;">
+                                            <div>关于我们</div>
+                                            <div style="color: #999;">></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div style="display: flex; justify-content: space-between; padding: 10px 5px;">
+                                            <div>帮助与反馈</div>
+                                            <div style="color: #999;">></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 底部导航 -->
+                            <div class="tab-bar">
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🏠</div>
+                                    <span>首页</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">🔍</div>
+                                    <span>发现</span>
+                                </div>
+                                <div class="tab-item">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">💤</div>
+                                    <span>睡眠</span>
+                                </div>
+                                <div class="tab-item active">
+                                    <div style="font-size: 24px; margin-bottom: 2px;">👤</div>
+                                    <span>我的</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-title">我的页面</div>
+                </div>
+                
+                <!-- 冥想统计页 -->
+                <div class="screen">
+                    <div class="screen-inner" style="background-color: #F1F6FB;">
+                        <div class="screen-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>📶 📶 100%</span>
+                            </div>
+                            <div class="nav-bar">
+                                <div>←</div>
+                                <div style="font-weight: bold;">冥想统计</div>
+                                <div></div>
+                            </div>
+                            
+                            <div class="content-area">
+                                <!-- 总体数据卡片 -->
+                                <div class="card" style="margin-bottom: 20px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">总冥想时长</div>
+                                            <div style="font-size: 24px; font-weight: bold;">45分钟</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">总冥想次数</div>
+                                            <div style="font-size: 24px; font-weight: bold;">5次</div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">连续天数</div>
+                                            <div style="font-size: 24px; font-weight: bold;">3天</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">最长冥想</div>
+                                            <div style="font-size: 24px; font-weight: bold;">15分钟</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 每日冥想趋势 -->
+                                <div style="margin-bottom: 20px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <div style="font-size: 16px; font-weight: 600;">每日冥想趋势</div>
+                                        <div style="font-size: 12px; color: #6A8CAF;">月视图</div>
+                                    </div>
+                                    <div class="card">
+                                        <div style="height: 180px; position: relative; margin-bottom: 15px;">
+                                            <!-- 模拟图表线 -->
+                                            <div style="position: absolute; bottom: 30px; width: 100%; height: 1px; background-color: #ddd;"></div>
+                                            <div style="position: absolute; bottom: 60px; width: 100%; height: 1px; background-color: #ddd;"></div>
+                                            <div style="position: absolute; bottom: 90px; width: 100%; height: 1px; background-color: #ddd;"></div>
+                                            <div style="position: absolute; bottom: 120px; width: 100%; height: 1px; background-color: #ddd;"></div>
+                                            <div style="position: absolute; bottom: 150px; width: 100%; height: 1px; background-color: #ddd;"></div>
+                                            
+                                            <!-- Y轴标签 -->
+                                            <div style="position: absolute; bottom: 25px; left: 0; font-size: 10px; color: #999;">0</div>
+                                            <div style="position: absolute; bottom: 55px; left: 0; font-size: 10px; color: #999;">5</div>
+                                            <div style="position: absolute; bottom: 85px; left: 0; font-size: 10px; color: #999;">10</div>
+                                            <div style="position: absolute; bottom: 115px; left: 0; font-size: 10px; color: #999;">15</div>
+                                            <div style="position: absolute; bottom: 145px; left: 0; font-size: 10px; color: #999;">20</div>
+                                            
+                                            <!-- 模拟柱状图 -->
+                                            <div style="position: absolute; bottom: 0; left: 12%; width: 10px; height: 60px; background-color: #6A8CAF; border-radius: 5px;"></div>
+                                            <div style="position: absolute; bottom: 0; left: 25%; width: 10px; height: 75px; background-color: #6A8CAF; border-radius: 5px;"></div>
+                                            <div style="position: absolute; bottom: 0; left: 38%; width: 10px; height: 45px; background-color: #6A8CAF; border-radius: 5px;"></div>
+                                            <div style="position: absolute; bottom: 0; left: 51%; width: 10px; height: 0px; background-color: #6A8CAF; border-radius: 5px;"></div>
+                                            <div style="position: absolute; bottom: 0; left: 64%; width: 10px; height: 90px; background-color: #6A8CAF; border-radius: 5px;"></div>
+                                            <div style="position: absolute; bottom: 0; left: 77%; width: 10px; height: 60px; background-color: #6A8CAF; border-radius: 5px;"></div>
+                                            <div style="position: absolute; bottom: 0; left: 90%; width: 10px; height: 30px; background-color: #6A8CAF; border-radius: 5px;"></div>
+                                            
+                                            <!-- X轴标签 -->
+                                            <div style="position: absolute; bottom: 0; left: 10%; font-size: 10px; color: #999; transform: translateY(15px);">一</div>
+                                            <div style="position: absolute; bottom: 0; left: 23%; font-size: 10px; color: #999; transform: translateY(15px);">二</div>
+                                            <div style="position: absolute; bottom: 0; left: 36%; font-size: 10px; color: #999; transform: translateY(15px);">三</div>
+                                            <div style="position: absolute; bottom: 0; left: 49%; font-size: 10px; color: #999; transform: translateY(15px);">四</div>
+                                            <div style="position: absolute; bottom: 0; left: 62%; font-size: 10px; color: #999; transform: translateY(15px);">五</div>
+                                            <div style="position: absolute; bottom: 0; left: 75%; font-size: 10px; color: #999; transform: translateY(15px);">六</div>
+                                            <div style="position: absolute; bottom: 0; left: 88%; font-size: 10px; color: #999; transform: translateY(15px);">日</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 冥想类型分布 -->
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">冥想类型分布</div>
+                                    <div class="card">
+                                        <div style="height: 160px; position: relative; margin-bottom: 10px;">
+                                            <!-- 模拟饼图 -->
+                                            <div style="position: absolute; width: 120px; height: 120px; border-radius: 60px; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: hidden;">
+                                                <div style="position: absolute; width: 120px; height: 120px; clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 0 100%, 0 50%, 50% 50%); background-color: #6A8CAF;"></div>
+                                                <div style="position: absolute; width: 120px; height: 120px; clip-path: polygon(50% 50%, 0 50%, 0 0, 50% 0, 50% 50%); background-color: #FFB17A;"></div>
+                                                <div style="position: absolute; width: 120px; height: 120px; clip-path: polygon(50% 50%, 100% 100%, 0 100%, 0 50%, 50% 50%); background-color: #65B891;"></div>
+                                            </div>
+                                            
+                                            <!-- 图例 -->
+                                            <div style="position: absolute; top: 20px; right: 0; text-align: right;">
+                                                <div style="display: flex; align-items: center; justify-content: flex-end; margin-bottom: 8px;">
+                                                    <div style="font-size: 12px; margin-right: 5px;">专注力</div>
+                                                    <div style="width: 12px; height: 12px; background-color: #6A8CAF; border-radius: 2px;"></div>
+                                                </div>
+                                                <div style="display: flex; align-items: center; justify-content: flex-end; margin-bottom: 8px;">
+                                                    <div style="font-size: 12px; margin-right: 5px;">减压</div>
+                                                    <div style="width: 12px; height: 12px; background-color: #FFB17A; border-radius: 2px;"></div>
+                                                </div>
+                                                <div style="display: flex; align-items: center; justify-content: flex-end;">
+                                                    <div style="font-size: 12px; margin-right: 5px;">睡眠</div>
+                                                    <div style="width: 12px; height: 12px; background-color: #65B891; border-radius: 2px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; justify-content: space-between; text-align: center;">
+                                            <div>
+                                                <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">50%</div>
+                                                <div style="font-size: 12px; color: #666;">专注力</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">25%</div>
+                                                <div style="font-size: 12px; color: #666;">减压</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">25%</div>
+                                                <div style="font-size: 12px; color: #666;">睡眠</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 最近冥想记录 -->
+                                <div>
+                                    <div style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">最近冥想记录</div>
+                                    
+                                    <div class="card" style="margin-bottom: 10px;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 50px; height: 50px; background-color: #6A8CAF; border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                                🧠
+                                            </div>
+                                            <div style="flex: 1;">
+                                                <div style="font-size: 16px; margin-bottom: 5px;">专注力冥想</div>
+                                                <div style="font-size: 12px; color: #666;">今天 09:30 • 10分钟</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card" style="margin-bottom: 10px;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 50px; height: 50px; background-color: #FFB17A; border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                                😌
+                                            </div>
+                                            <div style="flex: 1;">
+                                                <div style="font-size: 16px; margin-bottom: 5px;">减压冥想</div>
+                                                <div style="font-size: 12px; color: #666;">昨天 19:45 • 15分钟</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 50px; height: 50px; background-color: #65B891; border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-right: 15px; color: white;">
+                                                💤
+                                            </div>
+</body>
+</html> 
